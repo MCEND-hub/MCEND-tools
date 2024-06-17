@@ -1,12 +1,8 @@
-import os, sys, re
 import pandas as pd
 import matplotlib.pyplot as plt
-from numpy import *
+import numpy as np
 from matplotlib.gridspec import GridSpec
-from scipy.special import comb, factorial
-from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.animation as manimation
-from matplotlib.animation import FuncAnimation
 
 # plt.style.use(r'~/Dropbox/Grad-School-Things/solardarkmpl2.py')
 fig = plt.figure(figsize=(6 * 2, 4 * 2.5))
@@ -14,7 +10,7 @@ fig = plt.figure(figsize=(6 * 2, 4 * 2.5))
 
 def plot_mcend_results(n=0):
     plot_acf = True
-    lb_list = array(
+    lb_list = np.array(
         [
             "x",
             "y",
@@ -26,30 +22,30 @@ def plot_mcend_results(n=0):
             "V_{{nn}}",
             "V_{{en}}",
             "H_{{T}}",
-            "V_{\mathrm{BO}}",
-            "\sigma",
+            "V_{\mathrm{BO}}",  # noqa
+            "\sigma",  # noqa
         ]
     )
 
     cmapcycler = ["viridis", "plasma", "cividis", "Purples", "Greys", "Reds"]
 
     gs = GridSpec(8, 6)
-    ax1 = plt.subplot(gs[0:2, 0:2])
-    ax2 = plt.subplot(gs[2:4, 0:2])
-    ax3 = plt.subplot(gs[4:6, 0:2])
-    ax4 = plt.subplot(gs[6:, 0:2])
-    ax5 = plt.subplot(gs[0:2, 2:4])
-    ax6 = plt.subplot(gs[0:2, 4:6])
-    ax7 = plt.subplot(gs[2:4, 2:4])
-    ax8 = plt.subplot(gs[2:4, 4:6])
-    ax9 = plt.subplot(gs[4:6, 2:4])
-    ax10 = plt.subplot(gs[4:6, 4:6])
-    ax11 = plt.subplot(gs[6:, 2:4])
+    # ax1 = plt.subplot(gs[0:2, 0:2])
+    # ax2 = plt.subplot(gs[2:4, 0:2])
+    # ax3 = plt.subplot(gs[4:6, 0:2])
+    # ax4 = plt.subplot(gs[6:, 0:2])
+    # ax5 = plt.subplot(gs[0:2, 2:4])
+    # ax6 = plt.subplot(gs[0:2, 4:6])
+    # ax7 = plt.subplot(gs[2:4, 2:4])
+    # ax8 = plt.subplot(gs[2:4, 4:6])
+    # ax9 = plt.subplot(gs[4:6, 2:4])
+    # ax10 = plt.subplot(gs[4:6, 4:6])
+    # ax11 = plt.subplot(gs[6:, 2:4])
     ax12 = plt.subplot(gs[6:, 4:])
 
     ev = ["x", "y", "z", "R", "Te", "Tn", "Vee", "Vnn", "Ven", "Htot", "Vbo"]
 
-    expec = pd.read_csv("expec.t", delimiter="\s+")
+    expec = pd.read_csv("expec.t", delimiter="\s+")  # noqa
     acf_re = expec.loc[:, "Re(Acf)"].values
     acf_im = expec.loc[:, "Im(Acf)"].values
     #     acf_abs = abs(complex(acf_re,acf_im))
@@ -67,7 +63,8 @@ def plot_mcend_results(n=0):
             ax.set_xlim(-0.05)
 
         elif ev[i] == "Vbo":
-            #             ax.plot(expec.R[:], expec.Ven[:], label=ev[i], alpha=0.1)
+            # ax.plot(expec.R[:], expec.Ven[:],
+            # label=ev[i], alpha=0.1)
             V_BO = expec.Te[:] + expec.Ven[:] + expec.Vee[:] + expec.Vnn[:]
             ax.plot(
                 expec.time[:],
@@ -86,7 +83,8 @@ def plot_mcend_results(n=0):
                 zorder=3,
                 alpha=0.8,
             )
-            #             ax.legend(#title=r'$\langle {:}\rangle $'.format(lb_list[i]),
+            #             ax.legend(#title=r'$\langle {:}\rangle $'
+            #                   .format(lb_list[i]),
             #                   loc='best',
             #                   handletextpad=0.2, handlelength=1,
             #                   frameon=False)
@@ -105,7 +103,8 @@ def plot_mcend_results(n=0):
             ax.set_xlabel("$t$ (fs)")
 
         ax.tick_params(labelsize=9)
-        #         ax.legend(title=r'$\langle {:}\rangle $'.format(lb_list[i]), fontsize=8, handletextpad=0.2,
+        #         ax.legend(title=r'$\langle {:}\rangle $'.format(lb_list[i]),
+        #                             fontsize=8, handletextpad=0.2,
         #                             handlelength=1, ncol=1, frameon=False)
         ax.legend(fontsize=10, handletextpad=0.2, handlelength=1, ncol=1, frameon=False)
 

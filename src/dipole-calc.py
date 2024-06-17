@@ -1,6 +1,7 @@
 # get from Lucas, modified by Cong
 import pandas as pd
-import os, sys, re
+import os
+import re
 
 bohr2ang = 0.529178
 
@@ -25,17 +26,22 @@ atomic_info = pd.DataFrame(atomic_info_list, index=atom_labels, columns=["A", "Z
 def abs_pos(R, m1, m2, non_cm=False):
     # f=3.5 for integrals_OH-0-2-bf59-noreorient
     # reason for the formulae
-    # "prefactor of 3.5 was multiplied on the oxygen nuclear coordinate in Eq. (28)"
+    # "prefactor of 3.5 was multiplied on the oxygen nuclear coordinate
+    # in Eq. (28)"
     # J. Chem. Phys. 155, 154103 (2021)
-    # -> R1 = f R_parameter  m2/(m1+m2) (1) where R_parameter is a list in basis set generation
+    # -> R1 = f R_parameter  m2/(m1+m2) (1) where R_parameter is a list
+    # in basis set generation
     # R2 = - R_parameter m1/(m1+m2) (2)
     # in computing dipole moment,
     # one starts from R in expec.t, that is R1 - R2
     # R1 - R2 = R = R_parameter(fm2+m1)/(m1+m2) (3)
     # from (3) we can solve R_parameter, thus obtain R_1 and R_2 as below
     # namely, R_parameter = R * (m1 + m2) / (fm2+m1)
-    # R1 = f R_parameter  m2/(m1+m2) = f * R * (m1 + m2) / (fm2+m1) *  m2/(m1+m2) = R*f*((m2)/(m1 +f* m2))
-    # R2 = - R_parameter m1/(m1+m2) = -  R * (m1 + m2) / (fm2+m1) * m1/(m1+m2) = -R*((m1)/(f*m2 + m1))
+    # R1 = f R_parameter  m2/(m1+m2) = f * R * (m1 + m2) / (fm2+m1)
+    # *  m2/(m1+m2)
+    # = R*f*((m2)/(m1 +f* m2))
+    # R2 = - R_parameter m1/(m1+m2) = -  R * (m1 + m2) / (fm2+m1) * m1/(m1+m2)
+    # = -R*((m1)/(f*m2 + m1))
     #  f = 3.5
     f = 1.0
     R1 = R * f * ((m2) / (m1 + f * m2))
@@ -85,7 +91,7 @@ def dipole_calc(outf=None):
     flag_format = detect_expec_format(expect_file)
     # print('flag_format',flag_format)
 
-    Expec = pd.read_csv(expect_file, skiprows=flag_format, delimiter="\s+")
+    Expec = pd.read_csv(expect_file, skiprows=flag_format, delimiter="\s+")  # noqa
 
     R_expec = Expec.R.iloc[-1]
     z_expec = Expec.z.iloc[-1]
