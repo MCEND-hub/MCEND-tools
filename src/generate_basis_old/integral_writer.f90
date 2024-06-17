@@ -11,7 +11,7 @@ subroutine integral_writer(H, T, S, x, y, z, rij, rijindex, outfilename,  nrelem
   real(dp), intent(in)  :: x(nrelem), y(nrelem), z(nrelem)
   real(dp), intent(in)  :: rij(nrtwoeri)
   integer, intent(in)  :: rijindex(4, nrtwoeri)
-  integer :: i, j, k, l
+  integer :: i, j
   integer :: f999
 
   open(newunit=f999,file=trim(outfilename))

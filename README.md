@@ -2,6 +2,15 @@
 
 Tooling library for MCEND. Requirements depend on the individual scripts.
 
+# `generate_basis`
+The `generate_basis` folder contains Python scripts to generate the electron-nuclear basis sets for MCEND using Psi4.
+- `do_psi4_integrals_v2.py`:
+- 
+
+
+# `generate_basis_old`
+The `generate_basis_old` folder contains Fortran subroutines to write the one- and two-electron integrals in the correct format for MCEND. These have been superseded by `do_psi4_integrals_v2.py` in `generate_basis`.
+
 # `hhg_spec_gen`
 
 The `hhg_spec_gen` is a small fortran library that can be used to generate high harmonic spectra. You may use a sliding window for the Fourier transform to identify time spans during which specific frequencies dominate (originate in). Compile using the provided make file.
