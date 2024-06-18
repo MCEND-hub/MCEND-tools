@@ -3,9 +3,11 @@
 Tooling library for MCEND. Requirements depend on the individual scripts.
 
 # `generate_basis`
-The `generate_basis` folder contains Python scripts to generate the electron-nuclear basis sets for MCEND using Psi4.
-- `do_psi4_integrals_v2.py`:
-- 
+The `generate_basis` folder contains code to generate the electron-nuclear basis sets for MCEND using Psi4.
+- `do_psi4_integrals_v2.py`: Generates the basis using Psi4 and the specified molecule plus basis set.
+- `read_params.py`: Helper script to read input for Psi4.
+- `gen_coord.py`: Helper script to write input for Psi4.
+- `integral_writer.f90`: writes the one-and two-electron integrals in the correct format for MCEND.
 
 
 # `generate_basis_old`
