@@ -1,0 +1,29 @@
+nel =  2
+multiplicity = 1
+nrspf = 1
+nrorb = 2
+inigrd = 2
+restart = 0
+aucofu  = 0
+numthreads = 2
+tfin0 = 3.0
+t_initial = 0.0
+tout0 = 0.01
+N1 = 1.0
+N2 = 1.0
+A1N = 0.0
+A2N = 0.0
+@chars
+compound = H2
+intpath = integrals_H2-g4bf27
+autoshifte = yes
+itimeprop = yes
+read_stand = no
+freeze_nuc = no
+logev = no
+logwavef = yes
+do_openshell = no
+@pulseparams
+lph lpw0 lfreq  x    y     z
+0.0  0.0  0.0   0.0  0.0  1.0
+

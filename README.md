@@ -3,15 +3,16 @@
 Tooling library for MCEND. Requirements depend on the individual scripts.
 
 # `generate_basis`
+
 The `generate_basis` folder contains code to generate the electron-nuclear basis sets for MCEND using Psi4.
-- `do_psi4_integrals_v2.py`: Generates the basis using Psi4 and the specified molecule plus basis set.
+- `do_psi4_integrals.py`: Generates the basis using Psi4 and the specified molecule plus basis set.
 - `read_params.py`: Helper script to read input for Psi4.
-- `gen_coord.py`: Helper script to write input for Psi4.
-- `integral_writer.f90`: writes the one-and two-electron integrals in the correct format for MCEND.
-
-
-# `generate_basis_old`
-The `generate_basis_old` folder contains Fortran subroutines to write the one- and two-electron integrals in the correct format for MCEND. These have been superseded by `do_psi4_integrals_v2.py` in `generate_basis`.
+- `generate_int_v2.0.f90`: Generate MCEND orthogonal integrals from Psi4 outputs.
+- `integral_writer.f90`: Writes the one-and two-electron integrals in the correct format for MCEND.
+- `rsp`: Example file for the positions of distributed atomic centered basis sets
+- `grd_params`: Example for the nuclear grid points
+- `atomic_info.h5`: element symbol and nuclear charge for `do_psi4_integrals.py`
+- `Makefile`: complile `generate_int_v2.0.f90`
 
 # `hhg_spec_gen`
 
@@ -36,3 +37,8 @@ The following Jupyter notebooks are provided for your convenience:
 The following bash scripts are provided for your convenience:
 - `clean.sh`: A script that removes all MCEND output in the current folder and the MCEND executable from `../bin`
 - `collect-data.sh`: This script collects the MCEND output for you and moves it to a specificed folder. Can also trigger the calculation of spectra.
+- `test.sh`: Run a series of MCEND calculation for the files at `./calc_testing` and compare the reference values at `./calc_testing`
+
+# Testing set
+
+- `./calc_testing` stores input and reference value files, loaded via `./tools/test.sh`

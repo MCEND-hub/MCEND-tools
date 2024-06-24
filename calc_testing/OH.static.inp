@@ -1,0 +1,31 @@
+nel =  9
+multiplicity = 2
+nrspf = 1
+nrorb = 5
+nrorb_fc = 1
+inigrd = 2
+restart = 0
+aucofu  = 0
+numthreads = 1
+print_level = 0
+tfin0 = 0.005
+t_initial = 0.0
+tout0 = 0.001
+N1 = 8.0
+N2 = 1.0
+A1N = 8.0
+A2N = 0.0
+@chars
+compound = OH
+intpath = integrals_OH-0-2-bf39
+autoshifte = yes
+itimeprop = yes
+read_stand = no
+freeze_nuc = no
+logev = no
+logwavef = yes
+do_openshell = yes
+mf_reduction = no
+@pulseparams
+lph lpw0 lfreq  x    y     z
+0.0  0.0  0.0   0.0  0.0  1.0

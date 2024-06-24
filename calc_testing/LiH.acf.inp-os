@@ -1,0 +1,30 @@
+nel =  4
+multiplicity = 1
+nrspf = 1
+nrorb = 3
+nrorb_fc = 1
+inigrd = 2
+restart = 2
+aucofu  = 2
+numthreads = 2
+t_initial = 0.0
+tfin0 = 0.005
+tout0 = 0.001
+N1 = 3.0
+N2 = 1.0
+A1N = 3.0
+A2N = 0.0
+@chars
+compound = LiH
+intpath = integrals_LiH-bf32_dz
+autoshifte = yes
+itimeprop = no
+read_stand = no
+freeze_nuc = no
+logev = no
+logwavef = yes
+do_openshell = yes
+@pulseparams
+lph lpw0 lfreq  x    y     z
+0.04  2.80  0.110  0.0  0.0   1.0
+
