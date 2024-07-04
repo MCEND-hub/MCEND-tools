@@ -1,3 +1,7 @@
+![License: MIT](https://img.shields.io/github/license/MCEND-hub/MCEND-tools)
+![Language](https://img.shields.io/github/languages/top/MCEND-hub/MCEND-tools)
+![Version](https://img.shields.io/github/v/tag/MCEND-hub/MCEND-tools)
+
 # MCEND-tools
 
 Tooling library for MCEND. Requirements depend on the individual scripts.
