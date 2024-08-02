@@ -41,5 +41,3 @@ The following Jupyter notebooks are provided for your convenience:
 The following bash scripts are provided for your convenience:
 - `clean.sh`: A script that removes all MCEND output in the current folder and the MCEND executable from `../bin`
 - `collect-data.sh`: This script collects the MCEND output for you and moves it to a specificed folder. Can also trigger the calculation of spectra.
-- `test.sh`: Run a series of MCEND calculation for the files at `./calc_testing` and compare the reference values at `./calc_testing`
-
