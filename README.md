@@ -43,6 +43,3 @@ The following bash scripts are provided for your convenience:
 - `collect-data.sh`: This script collects the MCEND output for you and moves it to a specificed folder. Can also trigger the calculation of spectra.
 - `test.sh`: Run a series of MCEND calculation for the files at `./calc_testing` and compare the reference values at `./calc_testing`
 
-# Testing set
-
-- `./calc_testing` stores input and reference value files, loaded via `./tools/test.sh`
