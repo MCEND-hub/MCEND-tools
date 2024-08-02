@@ -1,4 +1,3 @@
-# get from Lucas, modified by Cong
 import pandas as pd
 import os
 import re
